@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+  web:
+    image: nginx:alpine
+    container_name: webkar
+    restart: always
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    ports:
+      - "8080:80"
+
+  app:
+    build: 
+      context: .
+      dockerfile: app/Dockerfile
+    restart: always
+    container_name: appkar
+    volumes:
+      - ./:/var/www
+
+  db:
+    image: postgres:16.2
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./app/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=kar
+      - POSTGRES_USER=root
+    container_name: dbkar
