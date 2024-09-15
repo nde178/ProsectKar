@@ -2,7 +2,6 @@
 
 namespace App\Http\Filters;
 
-use App\Http\Filters\AbstractFilter;
 use Illuminate\Database\Eloquent\Builder;
 
 class NoteFilter extends AbstractFilter
@@ -28,6 +27,4 @@ class NoteFilter extends AbstractFilter
     {
         $builder->whereRelation('tag', 'title', 'like', "%$value%");
     }
-
 }
-

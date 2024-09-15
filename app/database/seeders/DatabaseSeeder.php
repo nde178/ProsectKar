@@ -13,18 +13,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $user=[
+        $user = [
             'name' => 'admin',
             'email' => 's9hrt@example.com',
             'password' => bcrypt('password'),
         ];
         $user = User::firstOrCreate([
             'email' => $user['email'],
-        ],[
+        ], [
             'name' => $user['name'],
             'password' => $user['password'],
         ]
-            );
+        );
 
         $this->call([
             NoteSeeder::class,

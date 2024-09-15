@@ -10,12 +10,7 @@ class Tag extends Model
     use HasFactory;
 
     public function notes()
-
     {
         return $this->belongsToMany(Note::class, 'not_tag');
     }
-
-
 }
-
-

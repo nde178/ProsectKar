@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unique(['note_id', 'tag_id']);
         });
     }
+
     /**
      * Reverse the migrations.
      */

@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/notes', [NoteController::class, 'update'])->name('notes.update');
     Route::delete('/notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy');
     Route::get('/notes/search/{title}', [NoteController::class, 'title'])->name('notes.search');
-    Route::get('/tags',[TagController::class, 'index'])->name('tags.index');
+    Route::get('/tags', [TagController::class, 'index'])->name('tags.index');
 });
 
 require __DIR__.'/auth.php';
